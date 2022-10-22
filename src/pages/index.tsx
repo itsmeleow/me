@@ -12,8 +12,7 @@ export default function Home() {
 					</h1>
 					<p className="text-white/50">
 						Thanks for checking out my page. I'm a <span>~{age.toPrecision(7)}</span> year old software
-						engineer from the United States. I'm currently building full stack applications and
-						exploring the possiblities of web3. Get in touch at{' '}
+						engineer from the United States. I'm currently interested in building full stack web development. Get in touch with me at{' '}
 						<Link href="/talk">
 							<a className="font-bold hover:opacity-70">~/talk !</a>
 						</Link>
