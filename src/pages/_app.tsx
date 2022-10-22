@@ -45,14 +45,14 @@ export default function App({Component, pageProps, router}: AppProps) {
 	};
 
 	const navLinks = (
-		<div className="space-y-8">
-			<NavLink href="/" closeMenu={closeMenu}>
-				Home
-			</NavLink>
-			<NavLink href="/talk" closeMenu={closeMenu}>
-				Talk
-			</NavLink>
-		</div>
+		<>
+		<NavLink href="/" closeMenu={closeMenu}>
+			<code className="text-sm">~/</code>
+		</NavLink>
+		<NavLink href="/talk" closeMenu={closeMenu}>
+			<code className="text-sm">~/talk</code>
+		</NavLink>
+		</>
 	);
 
 	const [hasScrolled, setHasScrolled] = useState(false);
@@ -78,7 +78,6 @@ export default function App({Component, pageProps, router}: AppProps) {
 				position="bottom-right"
 				reverseOrder={false}
 				toastOptions={{
-					duration: 5000,
 					style: {
 						background: '#363636',
 						color: '#fff',
@@ -87,18 +86,18 @@ export default function App({Component, pageProps, router}: AppProps) {
 					},
 				}}
 			/>
-			<div className="max-w-4xl mx-auto">
+
 				<AnimatePresence>
 					{mobileMenuOpen && (
 						<motion.div
 							initial={{opacity: 0, y: -10}}
 							animate={{opacity: 1, y: 0}}
 							exit={{opacity: 0}}
-							className="fixed inset-0 z-30 py-24 px-8 space-y-4 backdrop-blur"
+							className="fixed inset-0 z-10 py-24 px-8 space-y-4 backdrop-blur sm:hidden"
 						>
 							<div className="max-w-4xl mx-auto">
-								<h1 className="text-5xl font-bold">MENU</h1>
-								<div className="mt-4">
+								<h1 className="text-5xl font-bold">Menu</h1>
+								<div className="mt-6">
 									<ul className="grid grid-cols-1">
 										<li>{navLinks}</li>
 									</ul>
@@ -108,24 +107,24 @@ export default function App({Component, pageProps, router}: AppProps) {
 					)}
 				</AnimatePresence>
 
-				<div className="overflow-hidden sticky top-0 z-30 h-32 transition">
+				<div className="overflow-hidden sticky top-0 z-30 h-32 transition-all sm:hidden">
 					<div
-						className={`border border-white/10 ${
+						className={` ${
 							hasScrolled || mobileMenuOpen
-								? 'mt-0 border-transparent bg-transparent'
-								: 'mt-10 mx-5 bg-deep/50'
-						} relative transition-all ${
+								? 'mt-0'
+								: 'mt-10 mx-5'
+						} relative bg-gray-900 transition-all ${
 							hasScrolled || mobileMenuOpen ? 'rounded-none' : 'rounded-lg'
 						}`}
 					>
 						<div
-							className={`pl-7 flex justify-end transition-colors -space-x-2 ${
-								mobileMenuOpen ? '' : ''
+							className={`flex justify-start transition-colors space-x-2 pr-5 ${
+								mobileMenuOpen ? 'bg-gray-900' : 'bg-transparent'
 							}`}
 						>
 							<button
 								type="button"
-								className="block relative z-50 px-2 text-gray-500 transition-all"
+								className="block relative z-50 px-2 text-gray-500 transition-all py-2"
 								onClick={toggleMenu}
 							>
 								<Hamburger
@@ -138,17 +137,25 @@ export default function App({Component, pageProps, router}: AppProps) {
 					</div>
 				</div>
 
-				<div className="px-8">
-					<main className="mx-auto mt-16">
+				<div className="mx-auto max-w-4xl py-10 px-5">
+					<div className="hidden items-center space-x-2 sm:flex mx-auto max-w-3xl">
+						<nav className="flex-1">
+							<ul className="flex space-x-8">{navLinks}</ul>
+						</nav>
+					</div>
+					<div className="mx-auto max-w-3xl space-y-12 sm:py-24">
 						<Component {...pageProps} />
-					</main>
-				</div>
+					</div>
+
+					<footer className="mx-auto mt-20 max-w-3xl border-t-2 border-neutral-900/10 p-4 py-32 opacity-50 dark:border-white/10"></footer>
+					<div />
+
 			</div>
 		</StrictMode>
 	);
 }
 
-const navLinkClassName = 'cursor-pointer text-2xl';
+const navLinkClassName = 'cursor-pointer text-2xl hover:opacity-70';
 
 export function NavLink(props: {
 	children: ReactNode;

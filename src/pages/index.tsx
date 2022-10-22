@@ -1,20 +1,27 @@
 import Layout from '../components/Layout';
+import Link from 'next/link';
+import {age} from '../util/time';
 
 export default function Home() {
 	return (
 		<Layout title="Home">
 			<div className="space-y-16">
 				<div className="space-y-2">
-					<h1 className="text-5xl font-semibold">Hey there, I'm leo ✌️</h1>
-					<p className="text-md text-white/50">
-						Thanks for checking out my page. I'm a 16 year old software
-						engineer. I'm building full stack applications and exploring the
-						possiblities of web3.
+					<h1 className="text-3xl text-white font-bold sm:text-4xl md:text-6xl">
+						Hey, I'm leo ✌️
+					</h1>
+					<p className="text-white/50">
+						Thanks for checking out my page. I'm a <span>~{age.toPrecision(7)}</span> year old software
+						engineer from the United States. I'm currently building full stack applications and
+						exploring the possiblities of web3. Get in touch at{' '}
+						<Link href="/talk">
+							<a className="font-bold hover:opacity-70">~/talk !</a>
+						</Link>
 					</p>
 				</div>
 
 				<div className="space-y-2">
-					<h1 className="text-3xl font-semibold">Technologies</h1>
+					<h1 className="text-3xl font-semibold">Technologies 💻</h1>
 					<p className="text-white/50">What I work with</p>
 					<ul className="grid grid-cols-2 gap-4 py-4">
 						<li className="flex space-x-2">

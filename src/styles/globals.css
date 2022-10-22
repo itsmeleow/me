@@ -1,36 +1,24 @@
-@font-face {
-	font-family: MD IO;
-	src: url(./fonts/MDIO0.4-Regular.woff2);
-	font-style: normal;
-	font-weight: 400;
-	font-display: swap;
-}
-@font-face {
-	font-family: MD IO;
-	src: url(./fonts/MDIO0.4-Semibold.woff2);
-	font-style: normal;
-	font-weight: 600;
-	font-display: swap;
-}
-@font-face {
-	font-family: MD IO;
-	src: url(./fonts/MDIO0.4-Ultra.woff2);
-	font-style: normal;
-	font-weight: 900;
-	font-display: swap;
-}
-@font-face {
-	font-family: MD IO;
-	src: url(./fonts/MDIO0.4-Italic.woff2);
-	font-style: italic;
-	font-display: swap;
+* {
+	margin: 0;
+	padding: 0;
 }
 
 html {
-	background: #000;
-	font-family: MD IO, system-ui, sans-serif;
-	padding: 0;
-	margin: 0 auto;
+	min-height: 100%;
+	@apply bg-gradient-to-tr from-slate-900 to-black bg-black text-neutral-100;
+
+}
+p {
+	@apply text-lg leading-8;
+}
+
+a {
+	@apply text-white cursor-pointer underline;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
 }
 
 ::selection {
@@ -47,8 +35,10 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
+	font-weight: 400;
+	font-size: 0.9rem;
+
 	min-height: 100%;
-	color: #ededed;
 
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -62,13 +52,8 @@ body {
 	border-radius: 0.25rem;
 	border-width: 1px;
 	border-color: hsla(0, 0%, 90%, 0.1);
-	background-color: hsla(0, 0%, 90%, 0.2);
 	font-weight: 600;
 	text-transform: uppercase;
-}
-
-.btn:hover {
-	background-color: hsla(0, 0%, 90%, 0.25);
 }
 
 .backdrop-blur {
@@ -85,9 +70,7 @@ body {
 		var(--tw-backdrop-sepia);
 }
 
-.bg-deep\/50 {
-	background-color: rgb(18 22 33/0.5);
-}
+
 
 .transition {
 	transition-property: color, background-color, border-color, fill, stroke,
@@ -104,7 +87,6 @@ body {
 }
 
 .card {
-	font-size: 14px;
 	padding: 0.625em 1em;
 	text-shadow: 0 1px 0 #121621;
 	box-shadow: 0 1px 1px -1px #121621;
@@ -116,12 +98,8 @@ body {
 
 .input,
 textarea {
-	font-family: inherit;
-	font-size: 100%;
 	line-height: inherit;
 	color: inherit;
-	margin: 0;
-	padding: 0;
 	background-color: hsla(0, 0%, 90%, 0.2);
 	border-color: hsla(0, 0%, 90%, 0.1);
 }

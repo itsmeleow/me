@@ -12,8 +12,13 @@ export default function Layout({children, title = 'leo'}: Props) {
 	return (
 		<div>
 			<Head>
-				<title>{title} | leo</title>
-				<meta charSet="utf-8" />
+				<meta charSet="utf-8" lang="en"/>
+				<link
+					rel="icon"
+					type="image/png"
+					href="https://avatars.githubusercontent.com/u/68571519?v=4"
+				/>
+				<title>leo</title>
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 			</Head>
 			<div>{children}</div>
