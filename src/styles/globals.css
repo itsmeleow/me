@@ -6,7 +6,6 @@
 html {
 	min-height: 100%;
 	@apply bg-gradient-to-tr from-slate-900 to-black bg-black text-neutral-100;
-
 }
 p {
 	@apply text-lg leading-8;
@@ -69,8 +68,6 @@ body {
 		var(--tw-backdrop-opacity) var(--tw-backdrop-saturate)
 		var(--tw-backdrop-sepia);
 }
-
-
 
 .transition {
 	transition-property: color, background-color, border-color, fill, stroke,

@@ -46,12 +46,12 @@ export default function App({Component, pageProps, router}: AppProps) {
 
 	const navLinks = (
 		<>
-		<NavLink href="/" closeMenu={closeMenu}>
-			<code className="text-sm">~/</code>
-		</NavLink>
-		<NavLink href="/talk" closeMenu={closeMenu}>
-			<code className="text-sm">~/talk</code>
-		</NavLink>
+			<NavLink href="/" closeMenu={closeMenu}>
+				<code className="text-sm">~/</code>
+			</NavLink>
+			<NavLink href="/talk" closeMenu={closeMenu}>
+				<code className="text-sm">~/talk</code>
+			</NavLink>
 		</>
 	);
 
@@ -87,69 +87,66 @@ export default function App({Component, pageProps, router}: AppProps) {
 				}}
 			/>
 
-				<AnimatePresence>
-					{mobileMenuOpen && (
-						<motion.div
-							initial={{opacity: 0, y: -10}}
-							animate={{opacity: 1, y: 0}}
-							exit={{opacity: 0}}
-							className="fixed inset-0 z-10 py-24 px-8 space-y-4 backdrop-blur sm:hidden"
-						>
-							<div className="max-w-4xl mx-auto">
-								<h1 className="text-5xl font-bold">Menu</h1>
-								<div className="mt-6">
-									<ul className="grid grid-cols-1">
-										<li>{navLinks}</li>
-									</ul>
-								</div>
+			<AnimatePresence>
+				{mobileMenuOpen && (
+					<motion.div
+						initial={{opacity: 0, y: -10}}
+						animate={{opacity: 1, y: 0}}
+						exit={{opacity: 0}}
+						className="fixed inset-0 z-10 py-24 px-8 space-y-4 backdrop-blur sm:hidden"
+					>
+						<div className="max-w-4xl mx-auto">
+							<h1 className="text-5xl font-bold">Menu</h1>
+							<div className="mt-6">
+								<ul className="grid grid-cols-1">
+									<li>{navLinks}</li>
+								</ul>
 							</div>
-						</motion.div>
-					)}
-				</AnimatePresence>
+						</div>
+					</motion.div>
+				)}
+			</AnimatePresence>
 
-				<div className="overflow-hidden sticky top-0 z-30 h-32 transition-all sm:hidden">
+			<div className="overflow-hidden sticky top-0 z-30 h-32 transition-all sm:hidden">
+				<div
+					className={` ${
+						hasScrolled || mobileMenuOpen ? 'mt-0' : 'mt-10 mx-5'
+					} relative bg-gray-900 transition-all ${
+						hasScrolled || mobileMenuOpen ? 'rounded-none' : 'rounded-lg'
+					}`}
+				>
 					<div
-						className={` ${
-							hasScrolled || mobileMenuOpen
-								? 'mt-0'
-								: 'mt-10 mx-5'
-						} relative bg-gray-900 transition-all ${
-							hasScrolled || mobileMenuOpen ? 'rounded-none' : 'rounded-lg'
+						className={`flex justify-start transition-colors space-x-2 pr-5 ${
+							mobileMenuOpen ? 'bg-gray-900' : 'bg-transparent'
 						}`}
 					>
-						<div
-							className={`flex justify-start transition-colors space-x-2 pr-5 ${
-								mobileMenuOpen ? 'bg-gray-900' : 'bg-transparent'
-							}`}
+						<button
+							type="button"
+							className="block relative z-50 px-2 text-gray-500 transition-all py-2"
+							onClick={toggleMenu}
 						>
-							<button
-								type="button"
-								className="block relative z-50 px-2 text-gray-500 transition-all py-2"
-								onClick={toggleMenu}
-							>
-								<Hamburger
-									toggled={mobileMenuOpen}
-									size={20}
-									color="currentColor"
-								/>
-							</button>
-						</div>
+							<Hamburger
+								toggled={mobileMenuOpen}
+								size={20}
+								color="currentColor"
+							/>
+						</button>
 					</div>
 				</div>
+			</div>
 
-				<div className="mx-auto max-w-4xl py-10 px-5">
-					<div className="hidden items-center space-x-2 sm:flex mx-auto max-w-3xl">
-						<nav className="flex-1">
-							<ul className="flex space-x-8">{navLinks}</ul>
-						</nav>
-					</div>
-					<div className="mx-auto max-w-3xl space-y-12 sm:py-24">
-						<Component {...pageProps} />
-					</div>
+			<div className="mx-auto max-w-4xl py-10 px-5">
+				<div className="hidden items-center space-x-2 sm:flex mx-auto max-w-3xl">
+					<nav className="flex-1">
+						<ul className="flex space-x-8">{navLinks}</ul>
+					</nav>
+				</div>
+				<div className="mx-auto max-w-3xl space-y-12 sm:py-24">
+					<Component {...pageProps} />
+				</div>
 
-					<footer className="mx-auto mt-20 max-w-3xl border-t-2 border-neutral-900/10 p-4 py-32 opacity-50 dark:border-white/10"></footer>
-					<div />
-
+				<footer className="mx-auto mt-20 max-w-3xl border-t-2 border-neutral-900/10 p-4 py-32 opacity-50 dark:border-white/10"></footer>
+				<div />
 			</div>
 		</StrictMode>
 	);
