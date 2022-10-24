@@ -10,7 +10,7 @@ export default function Talk() {
 			<div className="space-y-8">
 				<div className="space-y-2">
 					<h1 className="text-2xl text-white font-bold sm:text-3xl">
-						Let's talk 💬
+						Let&apos;s talk 💬
 					</h1>
 					<p className="text-white/50">
 						Leave a message through the form below or contact me through my
