@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, {ReactNode} from 'react';
 import Head from 'next/head';
 
 import 'tailwindcss/tailwind.css';
@@ -8,7 +8,7 @@ type Props = {
 	title?: string;
 };
 
-export default function Layout({ children, title }: Props) {
+export default function Layout({children, title}: Props) {
 	return (
 		<div>
 			<Head>

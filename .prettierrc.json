@@ -4,7 +4,7 @@
 	"printWidth": 80,
 	"trailingComma": "all",
 	"arrowParens": "avoid",
-	"bracketSpacing": true,
+	"bracketSpacing": false,
 	"useTabs": true,
 	"quoteProps": "consistent"
 }

@@ -1,6 +1,6 @@
-import { z } from 'zod';
-import { NextApiResponse, NextApiRequest } from 'next';
-import { DISCORD_WEBHOOK } from '../../server/constants';
+import {z} from 'zod';
+import {NextApiResponse, NextApiRequest} from 'next';
+import {DISCORD_WEBHOOK} from '../../server/constants';
 
 const schema = z.object({
 	name: z.string(),
@@ -16,7 +16,7 @@ export default async function handler(
 
 	const result = await fetch(DISCORD_WEBHOOK, {
 		method: 'POST',
-		headers: { 'Content-Type': 'application/json' },
+		headers: {'Content-Type': 'application/json'},
 		body: JSON.stringify({
 			content: `**New message from (${body.name})!**`,
 			embeds: [
@@ -40,7 +40,7 @@ export default async function handler(
 	});
 
 	if (result.status >= 400) {
-		return res.status(500).send({ success: false });
+		return res.status(500).send({success: false});
 	}
 
 	if (req.headers['content-type'] === 'application/json') {

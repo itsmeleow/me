@@ -1,7 +1,7 @@
-import { useRouter } from 'next/router';
+import {useRouter} from 'next/router';
 import toast from 'react-hot-toast';
 import Layout from '../components/Layout';
-import { SiGithub } from 'react-icons/si';
+import {SiGithub} from 'react-icons/si';
 
 export default function Talk() {
 	const router = useRouter();
@@ -106,7 +106,7 @@ export default function Talk() {
 								rel="noreferrer"
 								href="https://github.com/itsmeleow"
 							>
-								<span>{SiGithub({ className: 'h-6 w-6' })}</span>
+								<span>{SiGithub({className: 'h-6 w-6'})}</span>
 								<span>Github</span>
 							</a>
 						</div>

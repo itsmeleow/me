@@ -18,8 +18,8 @@ import {
 	SiYarn,
 } from 'react-icons/si';
 import Layout from '../components/Layout';
-import { ListItem } from '../components/ListItem';
-import { age } from '../util/time';
+import {ListItem} from '../components/ListItem';
+import {age} from '../util/time';
 
 export default function Home() {
 	return (
