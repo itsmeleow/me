@@ -1,22 +1,22 @@
-import React, {useState, useEffect, ReactNode, StrictMode} from 'react';
-import {AppProps} from 'next/app';
+import React, { useState, useEffect, ReactNode, StrictMode } from 'react';
+import { AppProps } from 'next/app';
 import Link from 'next/link';
-import {Router} from 'next/router';
+import { Router } from 'next/router';
 import NProgress from 'nprogress';
-import {Squash as Hamburger} from 'hamburger-react';
-import {AnimatePresence, motion} from 'framer-motion';
-import {Toaster} from 'react-hot-toast';
+import { Squash as Hamburger } from 'hamburger-react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Toaster } from 'react-hot-toast';
 
 import 'tailwindcss/tailwind.css';
 import '../styles/globals.css';
 import 'nprogress/nprogress.css';
 
-NProgress.configure({showSpinner: false});
+NProgress.configure({ showSpinner: false });
 Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
-export default function App({Component, pageProps, router}: AppProps) {
+export default function App({ Component, pageProps, router }: AppProps) {
 	const [mobileMenuOpen, setMenuOpen] = useState(false);
 
 	const toggleMenu = () => {
@@ -90,9 +90,9 @@ export default function App({Component, pageProps, router}: AppProps) {
 			<AnimatePresence>
 				{mobileMenuOpen && (
 					<motion.div
-						initial={{opacity: 0, y: -10}}
-						animate={{opacity: 1, y: 0}}
-						exit={{opacity: 0}}
+						initial={{ opacity: 0, y: -10 }}
+						animate={{ opacity: 1, y: 0 }}
+						exit={{ opacity: 0 }}
 						className="fixed inset-0 z-10 py-24 px-8 space-y-4 backdrop-blur sm:hidden"
 					>
 						<div className="max-w-4xl mx-auto">
