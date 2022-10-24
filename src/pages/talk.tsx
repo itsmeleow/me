@@ -8,8 +8,10 @@ export default function Talk() {
 		<Layout title="Talk">
 			<div className="space-y-8">
 				<div className="space-y-2">
-					<h1 className="text-4xl font-semibold">Let's talk 💬</h1>
-					<p className="text-md text-white/50">
+					<h1 className="text-2xl text-white font-bold sm:text-3xl">
+						Let's talk 💬
+					</h1>
+					<p className="text-white/50">
 						Leave a message through the form below or contact me through my
 						socials.
 					</p>
@@ -50,18 +52,6 @@ export default function Talk() {
 											error?.message ?? 'Something went wrong...',
 									},
 								);
-
-								// const response = fetch('/api/talk', options);
-
-								// await toast
-								// 	.promise(response, {
-								// 		loading: 'Sending...',
-								// 		success: 'Success!',
-								// 		error: (error: Error) =>
-								// 			error?.message ?? 'Something went wrong...',
-								// 	})
-								// 	.then(async () => router.push('/thanks'))
-								// 	.catch(() => null);
 							}}
 						>
 							<label className="grid grid-cols-1 space-y-1">
