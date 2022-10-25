@@ -9,6 +9,7 @@ import {Toaster} from 'react-hot-toast';
 
 import 'tailwindcss/tailwind.css';
 import '../styles/globals.css';
+import '../../public/fonts/general-sans/css/general-sans.css';
 import 'nprogress/nprogress.css';
 
 NProgress.configure({showSpinner: false});

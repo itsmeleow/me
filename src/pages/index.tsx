@@ -31,7 +31,7 @@ export default function Home() {
 					</h1>
 					<p className="text-white/50">
 						Thanks for checking out my page. I&apos;m a{' '}
-						<span>~{age.toPrecision(7)}</span> year old software engineer from
+						<span suppressHydrationWarning>~{age.toPrecision(7)}</span> year old software engineer from
 						the United States. I&apos;m currently interested in full stack web
 						development. Get in touch with me at{' '}
 						<Link href="/talk">

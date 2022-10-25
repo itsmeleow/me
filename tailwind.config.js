@@ -1,3 +1,5 @@
+const defaults = require('tailwindcss/defaultTheme');
+
 module.exports = {
 	content: [
 		'./src//**/*.{js,jsx,ts,tsx}',
@@ -5,7 +7,10 @@ module.exports = {
 		'./components/**/*.{js,ts,jsx,tsx}',
 	],
 	theme: {
-		extend: {},
+		fontFamily: {
+			mono: ['"JetBrains Mono"', ...defaults.fontFamily.mono],
+			sans: ['"GeneralSans-Variable"', ...defaults.fontFamily.sans],
+		},
 	},
 	plugins: [],
 };

@@ -26,15 +26,15 @@ export default function Talk() {
 							onSubmit={async event => {
 								event.preventDefault();
 
-								const values = Object.fromEntries(
-									new FormData(event.target as HTMLFormElement).entries(),
+								const values = JSON.stringify(Object.fromEntries(
+									new FormData(event.target as HTMLFormElement).entries()),
 								);
 								const options = {
 									method: 'POST',
 									headers: {
 										'Content-Type': 'application/json',
 									},
-									body: JSON.stringify(values),
+									body: values,
 								};
 
 								toast.promise(
