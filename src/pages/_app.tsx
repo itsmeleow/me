@@ -6,6 +6,7 @@ import NProgress from 'nprogress';
 import {Squash as Hamburger} from 'hamburger-react';
 import {AnimatePresence, motion} from 'framer-motion';
 import {Toaster} from 'react-hot-toast';
+import { Analytics } from '@vercel/analytics/react';
 
 import 'tailwindcss/tailwind.css';
 import '../styles/globals.css';
@@ -149,6 +150,7 @@ export default function App({Component, pageProps, router}: AppProps) {
 				<footer className="mx-auto mt-20 max-w-3xl border-t-2 border-neutral-900/10 p-4 py-32 opacity-50 dark:border-white/10"></footer>
 				<div />
 			</div>
+			<Analytics />
 		</StrictMode>
 	);
 }
