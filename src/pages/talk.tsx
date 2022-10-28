@@ -1,7 +1,8 @@
 import {useRouter} from 'next/router';
+import Link from 'next/link';
 import toast from 'react-hot-toast';
 import Layout from '../components/Layout';
-import {SiGithub} from 'react-icons/si';
+import {SiGithub, SiDiscord} from 'react-icons/si';
 
 export default function Talk() {
 	const router = useRouter();
@@ -26,8 +27,10 @@ export default function Talk() {
 							onSubmit={async event => {
 								event.preventDefault();
 
-								const values = JSON.stringify(Object.fromEntries(
-									new FormData(event.target as HTMLFormElement).entries()),
+								const values = JSON.stringify(
+									Object.fromEntries(
+										new FormData(event.target as HTMLFormElement).entries(),
+									),
 								);
 								const options = {
 									method: 'POST',
@@ -99,16 +102,31 @@ export default function Talk() {
 
 					<div className="card space-y-2">
 						<h1 className="text-xl font-semibold">Links</h1>
-						<div>
-							<a
-								className="btn relative inline-flex space-x-2 items-center justify-center no-underline bg-white/5 hover:bg-white/10"
+						<div className="flex-row space-x-2">
+							<Link
+								href="https://github.com/itsmeleow"
 								target="_blank"
 								rel="noreferrer"
-								href="https://github.com/itsmeleow"
 							>
-								<span>{SiGithub({className: 'h-6 w-6'})}</span>
-								<span>Github</span>
-							</a>
+								<a
+									className="btn relative inline-flex space-x-2 items-center justify-center no-underline bg-white/5 hover:bg-white/10"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									<span>{SiGithub({className: 'h-6 w-6'})}</span>
+									<span>Github</span>
+								</a>
+							</Link>
+							<Link href="https://discord.com/users/574773140392116228">
+								<a
+									className="btn relative inline-flex space-x-2 items-center justify-center no-underline bg-white/5 hover:bg-white/10"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									<span>{SiDiscord({className: 'h-6 w-6'})}</span>
+									<span>Discord</span>
+								</a>
+							</Link>
 						</div>
 					</div>
 				</div>

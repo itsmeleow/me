@@ -6,7 +6,7 @@ import NProgress from 'nprogress';
 import {Squash as Hamburger} from 'hamburger-react';
 import {AnimatePresence, motion} from 'framer-motion';
 import {Toaster} from 'react-hot-toast';
-import { Analytics } from '@vercel/analytics/react';
+import {Analytics} from '@vercel/analytics/react';
 
 import 'tailwindcss/tailwind.css';
 import '../styles/globals.css';

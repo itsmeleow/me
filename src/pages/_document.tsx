@@ -11,10 +11,7 @@ export default class LDocument extends Document {
 						type="image/png"
 						href="https://avatars.githubusercontent.com/u/68571519?v=4"
 					/>
-                    <meta
-						name="description"
-						content="my personal website"
-					/>
+					<meta name="description" content="my personal website" />
 					<link rel="preconnect" href="https://fonts.googleapis.com" />
 					<link rel="preconnect" href="https://fonts.gstatic.com" />
 					<link
