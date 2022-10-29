@@ -30,7 +30,7 @@ export default async function handler(
 							name: 'ip',
 							value:
 								req.headers['x-forwarded-for'] ??
-								req.connection.remoteAddress ??
+								req.socket.remoteAddress ??
 								'unknown!?',
 						},
 					],
