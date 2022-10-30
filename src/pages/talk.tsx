@@ -3,6 +3,7 @@ import Link from 'next/link';
 import toast from 'react-hot-toast';
 import Layout from '../components/Layout';
 import {SiGithub, SiDiscord} from 'react-icons/si';
+import {BiSend} from 'react-icons/bi';
 
 export default function Talk() {
 	const router = useRouter();
@@ -20,7 +21,7 @@ export default function Talk() {
 				</div>
 
 				<div className="grid grid-cols-1 space-y-4">
-					<div className="card">
+					<div className="card font-semibold">
 						<form
 							className="space-y-6 uppercase grid grid-cols-1"
 							method="POST"
@@ -40,22 +41,15 @@ export default function Talk() {
 									body: values,
 								};
 
-								toast.promise(
-									fetch('/api/talk', options)
-										.then(res => {
-											console.log(res);
-										})
-										.then(() => {
-											router.push('/thanks');
-										})
-										.catch(err => console.log(err)),
-									{
+								await toast
+									.promise(fetch('/api/talk', options), {
 										loading: 'Loading...',
 										success: 'Success',
 										error: (error: Error) =>
 											error?.message ?? 'Something went wrong...',
-									},
-								);
+									})
+									.then(async () => router.push('/thanks'))
+									.catch(error => console.log(error.message));
 							}}
 						>
 							<label className="grid grid-cols-1 space-y-1">
@@ -65,7 +59,7 @@ export default function Talk() {
 									type="name"
 									name="name"
 									id="name"
-									className="block w-full rounded-md  py-1 px-4 font-sans text-lg focus:outline-none focus:ring focus:ring-gray-800 bg-white/5"
+									className="block input w-full rounded-md  py-1 px-4 font-sans text-lg focus:outline-none focus:ring focus:ring-gray-600 bg-white/5"
 								/>
 							</label>
 							<label className="grid grid-cols-1 space-y-1">
@@ -75,7 +69,7 @@ export default function Talk() {
 									type="email"
 									name="email"
 									id="email"
-									className="block w-full rounded-md  py-1 px-4 font-sans text-lg focus:outline-none focus:ring focus:ring-gray-800 bg-white/5"
+									className="block w-full rounded-md  py-1 px-4 font-sans text-lg focus:outline-none focus:ring focus:ring-gray-600 bg-white/5"
 								/>
 							</label>
 							<label className="grid grid-cols-1 space-y-1">
@@ -83,18 +77,19 @@ export default function Talk() {
 								<textarea
 									required
 									rows={5}
-									name="body"
+									name="message"
 									minLength={2}
-									id="body"
-									className="block w-full resize-none rounded-md py-1 px-4 font-sans text-lg focus:outline-none focus:ring focus:ring-gray-800 bg-white/5"
+									id="message"
+									className="block w-full resize-none rounded-md py-1 px-4 font-sans text-lg focus:outline-none focus:ring focus:ring-gray-600 bg-white/5"
 								/>
 							</label>
 							<div className="">
 								<button
 									type="submit"
-									className="btn bg-white/5 hover:bg-white/10"
+									className="btn rounded-full inline-flex space-x-2 items-center justify-center bg-white/5 hover:bg-white/10"
 								>
 									<span>Submit</span>
+									<span>{BiSend({className: 'h-4 w-4'})}</span>
 								</button>
 							</div>
 						</form>
@@ -109,12 +104,12 @@ export default function Talk() {
 								rel="noreferrer"
 							>
 								<a
-									className="btn relative inline-flex space-x-2 items-center justify-center no-underline bg-white/5 hover:bg-white/10"
+									className="btn relative inline-flex space-x-2 items-center justify-center no-underline bg-white/5 hover:bg-white/10 "
 									target="_blank"
 									rel="noopener noreferrer"
 								>
 									<span>{SiGithub({className: 'h-6 w-6'})}</span>
-									<span>Github</span>
+									<span className="font-medium">Github</span>
 								</a>
 							</Link>
 							<Link href="https://discord.com/users/574773140392116228">
@@ -124,7 +119,7 @@ export default function Talk() {
 									rel="noopener noreferrer"
 								>
 									<span>{SiDiscord({className: 'h-6 w-6'})}</span>
-									<span>Discord</span>
+									<span className="font-medium">Discord</span>
 								</a>
 							</Link>
 						</div>

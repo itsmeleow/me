@@ -51,7 +51,7 @@ body {
 	box-shadow: 0 1px 1px -1px #121621;
 	border-radius: 0.25rem;
 	border-width: 1px;
-	border-color: hsla(0, 0%, 90%, 0.1);
+	border-color: #e6e6e61a;
 	font-weight: 600;
 	text-transform: uppercase;
 }
@@ -90,14 +90,5 @@ body {
 	box-shadow: 0 1px 1px -1px #121621;
 	border-radius: 0.25rem;
 	border-width: 1px;
-	border-color: hsla(0, 0%, 90%, 0.1);
-	font-weight: 600;
-}
-
-.input,
-textarea {
-	line-height: inherit;
-	color: inherit;
-	background-color: hsla(0, 0%, 90%, 0.2);
-	border-color: hsla(0, 0%, 90%, 0.1);
+	border-color: #e6e6e61a;
 }

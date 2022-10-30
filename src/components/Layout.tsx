@@ -10,12 +10,12 @@ type Props = {
 
 export default function Layout({children, title}: Props) {
 	return (
-		<div>
+		<>
 			<Head>
 				<title>{title} | leo</title>
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 			</Head>
-			<>{children}</>
-		</div>
+			{children}
+		</>
 	);
 }

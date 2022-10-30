@@ -143,11 +143,20 @@ export default function App({Component, pageProps, router}: AppProps) {
 						<ul className="flex space-x-8">{navLinks}</ul>
 					</nav>
 				</div>
-				<div className="mx-auto max-w-3xl space-y-12 sm:py-24">
-					<Component {...pageProps} />
-				</div>
+				<AnimatePresence mode="wait">
+					<motion.div
+						key={router.asPath}
+						initial={{opacity: 0}}
+						animate={{opacity: 1}}
+						exit={{opacity: 0}}
+					>
+						<div className="mx-auto max-w-3xl space-y-12 sm:py-24">
+							<Component {...pageProps} />
+						</div>
 
-				<footer className="mx-auto mt-20 max-w-3xl border-t-2 border-neutral-900/10 p-4 py-32 opacity-50 dark:border-white/10"></footer>
+						<footer className="mx-auto mt-20 max-w-3xl border-t-2 border-neutral-900/10 p-4 py-32 opacity-50 dark:border-white/10"></footer>
+					</motion.div>
+				</AnimatePresence>
 				<div />
 			</div>
 			<Analytics />
