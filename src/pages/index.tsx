@@ -37,7 +37,7 @@ export default function Home() {
 							<HiOutlineLocationMarker className="h-6 w-6" />
 						</span>
 
-						<span className="-mb-0.5">New York, US &nbsp;</span>
+						<span className="-mb-0.5">New York City, US &nbsp;</span>
 
 						<span className="-mb-0.5 ml-1 block h-[6px] w-[6px] animate-pulse rounded-full bg-sky-400" />
 					</a>
@@ -47,22 +47,21 @@ export default function Home() {
 					Hey, I&apos;m leo ✌️
 				</h1>
 				<p className="text-white/50">
-					Thanks for checking out my page. I&apos;m a{' '}
-					<span suppressHydrationWarning>~{age.toPrecision(7)}</span> year old
+					Thanks for checking out my page! I&apos;m a{' '}
+					<span suppressHydrationWarning>~{age.toPrecision(7)}</span> year old self-taught
 					software engineer from the United States. I&apos;m currently
-					interested in full stack web development. Get in touch with me at{' '}
-					<Link href="/talk">
-						<a className="font-bold hover:opacity-70">~/talk !</a>
-					</Link>
+					building full stack web applications and exploring new technologies.
 				</p>
 			</div>
 
 			<div className="space-y-4">
-				<h1 className="text-2xl sm:text-3xl font-semibold">Technologies 💻</h1>
-				<p className="text-white/50">
+				<div>
+					<h1 className="text-2xl sm:text-3xl font-semibold">Technologies 💻</h1>
+					<p className="text-white/50">
 					I use a wide range of technologies to create applications in the most
 					efficient manner possible.
-				</p>
+					</p>
+				</div>
 				<ul className="grid grid-cols-3 sm:grid-cols-4 gap-4 pt-2">
 					<ListItem icon={SiNextDotJs} text="Next.js" />
 					<ListItem icon={SiJavascript} text="Javascript" />

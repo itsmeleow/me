@@ -154,10 +154,12 @@ export default function App({Component, pageProps, router}: AppProps) {
 							<Component {...pageProps} />
 						</div>
 
-						<footer className="mx-auto mt-20 max-w-3xl border-t-2 border-neutral-900/10 p-4 py-32 opacity-50 dark:border-white/10"></footer>
+						<footer className="mx-auto mt-20 max-w-3xl border-t-2 border-neutral-900/10 p-4 py-10 opacity-50 dark:border-white/10">
+							<h1 className="text-3xl font-bold">Leo Wang</h1>
+							<p>Software Engineer • {new Date().getFullYear()}</p>
+						</footer>
 					</motion.div>
 				</AnimatePresence>
-				<div />
 			</div>
 			<Analytics />
 		</StrictMode>
